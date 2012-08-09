@@ -1,0 +1,74 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: 197 208 415 469
+%%Creator: (J. Loughry)
+%%Title: (st-cross-shield.eps)
+%%CreationDate: (20070529.01)
+%%DocumentData: Clean7Bit
+%%EndComments
+
+/R 3 def
+
+/field { % def
+   R 2 div neg 1 moveto
+   0 1 neg rlineto
+   R 2 div 0 R 180 240 arc
+   R 2 div neg 0 R 300 360 arc
+	0 1 rlineto
+	closepath
+} bind def
+
+/centroid 0.48372 neg def
+
+/quarter { % def
+  field clip
+  newpath
+  0 centroid moveto
+  0 R 2 div rlineto
+  R 2 div neg 0 rlineto
+  0 R 2 div neg rlineto closepath
+} bind def
+
+/quadrant_of_cross_potent { % def
+  0 dup moveto
+  6 0 rlineto
+  0 3 rlineto
+  2 neg 0 rlineto
+  0 2 neg rlineto
+  3 neg 0 rlineto
+  0 3 rlineto
+  2 0 rlineto
+  0 2 rlineto
+  3 neg 0 rlineto
+  0 dup lineto % path is not closed yet on purpose
+} bind def
+
+/cross_potent { % def
+  0 centroid translate
+  0.212 0.85 mul dup scale % 85 percent of largest inscribed circle
+  4 { % repeat
+    quadrant_of_cross_potent
+    90 rotate
+  } repeat
+} bind def
+
+/argent { 1 setgray fill } bind def
+/purpure { 0.63 0.13 0.94 setrgbcolor fill } bind def
+/inch {72 mul} def
+
+1 inch dup scale
+1 72 div setlinewidth
+8.5 2 div 11 2 div translate
+
+% "Argent a cross potent purpure a quarter counterchanged"
+
+field argent
+gsave
+  quarter purpure
+grestore
+0 setgray field stroke
+cross_potent purpure
+90 rotate
+quadrant_of_cross_potent argent
+
+showpage
+%%EOF
