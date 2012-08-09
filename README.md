@@ -21,6 +21,3 @@ PostScript
 There are two PostScript source files here, `shield.eps` and `st_cross_shield.eps`.
 Both are valid Encapsulated PostScript (EPS); the former draws the outline of a heraldic shield
 only and the latter draws the arms of St Cross College, Oxford as above.
-
-<img src="./st_cross_shield.jpeg">
-
