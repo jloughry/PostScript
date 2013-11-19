@@ -1,4 +1,3 @@
-
 target = notes_on_the_centroid_of_a_shield
 
 #
@@ -11,6 +10,8 @@ logfile = $(target).log
 pdf = $(target).pdf
 dvi = $(target).dvi
 
+documentation = README.md
+
 #
 # Executable Commands
 #
@@ -18,6 +19,12 @@ dvi = $(target).dvi
 # latex_cmd = pdflatex
 latex_cmd = latex
 pdf_cmd = dvipdfm
+
+#
+# Note: make requires that we set the value of a variable OUTSIDE any rules.
+#
+
+timestamp = `date +%Y%m%d.%H%M`
 
 #
 # Default makefile target
@@ -52,4 +59,16 @@ allclean: clean
 
 touch:
 	touch $(latex_source)
+
+readme:
+	vi $(documentation)
+
+spell:
+	aspell --lang=en_GB check $(documentation)
+
+commit:
+	git add .
+	git commit -am "commit from Makefile $(timestamp)"
+	git pull --rebase
+	git push
 
