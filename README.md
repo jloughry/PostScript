@@ -6,7 +6,7 @@ Notes on the Centroid of a Shield
 
 Consider the domain-specific language used to describe heraldic devices.
 
-    Argent a cross potent purpure, a quarter counterchanged
+    *Argent a cross potent purpure, a quarter counterchanged*
 
 There is not a syllable wasted in that description.  But the information left implicit in the
 language is important.  The precise shape of the shield, for example, is not important.  Above or
