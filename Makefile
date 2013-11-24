@@ -10,8 +10,6 @@ logfile = $(target).log
 pdf = $(target).pdf
 dvi = $(target).dvi
 
-documentation = README.md
-
 #
 # Executable Commands
 #
@@ -20,17 +18,11 @@ documentation = README.md
 latex_cmd = latex
 pdf_cmd = dvipdfm
 
-#
-# Note: make requires that we set the value of a variable OUTSIDE any rules.
-#
-
-timestamp = `date +%Y%m%d.%H%M`
-
-#
-# Default makefile target
-#
+include ../Makefiles/git1.mk
 
 all: $(dvi)
+
+include ../Makefiles/git2.mk
 
 #
 # Helper makefile targets
@@ -60,18 +52,6 @@ allclean: clean
 touch:
 	touch $(latex_source)
 
-readme:
-	vi $(documentation)
-
 spell:
 	aspell --lang=en_GB check $(documentation)
-
-commit:
-	git add .
-	git commit -am "commit from Makefile $(timestamp)"
-	make sync
-
-sync:
-	git pull --rebase
-	git push
 
