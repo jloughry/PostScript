@@ -9,6 +9,7 @@ postscript_source = shield.eps
 logfile = $(target).log
 pdf = $(target).pdf
 dvi = $(target).dvi
+documentation = README.md
 
 #
 # Executable Commands
@@ -18,11 +19,7 @@ dvi = $(target).dvi
 latex_cmd = latex
 pdf_cmd = dvipdfm
 
-include ../Makefiles/git1.mk
-
 all: $(dvi)
-
-include ../Makefiles/git2.mk
 
 #
 # Helper makefile targets
@@ -54,4 +51,6 @@ touch:
 
 spell:
 	aspell --lang=en_GB check $(documentation)
+
+include common.mk
 
