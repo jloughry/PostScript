@@ -50,4 +50,3 @@ touch:
 	touch $(latex_source)
 
 include common.mk
-
