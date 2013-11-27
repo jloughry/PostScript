@@ -19,7 +19,7 @@ documentation = README.md
 latex_cmd = latex
 pdf_cmd = dvipdfm
 
-all: $(dvi)
+all:: $(dvi)
 
 #
 # Helper makefile targets
@@ -40,7 +40,7 @@ vi:
 picture:
 	ps2pdf st_cross_shield.eps
 
-clean:
+clean::
 	rm -f $(dvi) *.aux *.bbl *.blg *.idx *.ilg *.ind *.log .pdf
 
 allclean: clean
@@ -48,9 +48,6 @@ allclean: clean
 
 touch:
 	touch $(latex_source)
-
-spell:
-	aspell --lang=en_GB check $(documentation)
 
 include common.mk
 
